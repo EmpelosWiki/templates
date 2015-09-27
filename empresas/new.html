@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+
+    <!-- start divider -->
+    <section id="divider">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+    			</div>
+    			<div class="col-md-8 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+    			    <div class="row">
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                            <input class="btn btn-success" type="submit" value="Terminar">
+                        </form>
+                    </div>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+
+{% endblock %}

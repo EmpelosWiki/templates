@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<!-- start navigation -->
+<nav class="navbar navbar-default navbar-fixed-top templatemo-nav" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a class="navbar-brand" rel="home" href="#" title="Buy Sell Rent Everyting">
+        		<img id="logo_image" style="max-width:110px; margin-top: -7px;" src="{% static 'images/e_mundito_AZUL.png' %}">
+    		</a>
+    		<img style="max-width:80px; margin-top: -50px; margin-left: 120px" src="{% static 'images/wiki_empleo.png' %}">
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right text-uppercase">
+				
+				{% if title == "Inicio" %}
+				
+					<li><a href="#start">Inicio</a></li>
+					<li><a href="#divider">Características</a></li>
+					<li><a href="#feature">Nosotros</a></li>
+					<li><a href="#feature1">Entrar</a></li>
+					<li>
+						<a href="#feature1">
+							<input type="button" class="btn btn-warning" value="Registrarse"/>
+						</a>
+					</li>
+				
+				{% endif %}
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<!-- end navigation -->

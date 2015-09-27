@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block extra_head %}
+
+<style type="text/css">
+	.vac_name {
+		color : #0099cc;
+		font-weight: bold;
+		font-size : 15px;
+	}
+	.des_email{
+		color : #114A7E;
+		font-weight: bold;
+		font-size : 15px;
+	}
+	#divider .fa {
+		color : #0099cc;
+		font-size : 20px;
+	}
+	.desempleados {
+		background-color : #55C3B3;
+		height: 250px;
+		overflow: scroll;
+		overflow-x: hidden;
+	}
+	.vacantes {
+		background-color : #DCEDFC;
+		height: 250px;
+		overflow: scroll;
+		overflow-x: hidden;
+	}
+	.notificaciones{
+		background-color : #DCEDFC;
+		height: 200px;
+		overflow: scroll;
+		overflow-x: hidden;
+	}
+</style>
+        
+{% endblock %}
+
+{% block content %}
+
+<!-- start divider -->
+<section id="divider">
+	<div class="container">
+		<br /><br /><br />
+		<div class="row">
+			<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+			    <div class="col-md-12">
+    			    <div class="prev_prof">
+    			        <div class="col-md-12">
+            		        <img id="logo_image" style="max-width:110px; margin-top: -7px;" src="{% static 'images/e_mundito_AZUL.png' %}">
+        		        </div>
+        		        <div class="col-md-12 user_info">
+        		            <h4>{{current_user.name}}</h6>
+        		            <h4>{{current_user.email}}</h6>
+        		            <h4>{{current_user.phone_number}}</h6>
+        		            <h4>{{current_user.oficio.description}}</h6>
+        		            <a href="#">Editar</a>
+        		        </div>
+    			    </div>
+    			</div>
+    			<div class="col-md-12">
+    			    <div class="notif_box">
+                        <h4>Interacciones</h4>
+                        <hr />
+                        <div class"col-md-12 sidebar-module sidebar-module-inset notificaciones">
+                            adasdfa
+                        </div>
+    			    </div>
+    			</div>
+			</div>
+			<div class="col-md-8 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+				<div class="row">
+					<div class="col-md-8 text-left">
+						<h4 class="text-left">Vacantes Recomendadas</h4>
+					</div>
+				</div>
+				<hr />
+				<div class="col-md-12 col-md-12 sidebar-module sidebar-module-inset vacantes">
+					
+					{% for v in vacantes %}
+						<div class="col-md-12 vacante">
+							<div class="row">
+								<div class="col-md-8">
+									<a href="#"><div class="vac_name text-left">{{v.name}}</div></a>
+									<div class="vac_description text-left">{{v.description|truncatechars:60}}</div>
+								</div>
+								<div class="col-md-4">
+									<div class="vac_tools text-right">
+										<i class="fa fa-commenting-o"></i>
+									</div>
+								</div>
+							</div>
+							<hr />
+						</div>
+					{% endfor %}
+					
+				</div>
+				<hr />
+				<h4  class="text-left">Contacta empresas relacionadas con tu área</h4>
+				<hr />
+				<div class="col-md-12 sidebar-module sidebar-module-inset desempleados">
+					{% for g in desempleados %}
+						<div class="col-md-12 desempleado">
+							<div class="row">
+								<div class="col-md-8">
+									<a href="#"><div class="des_email text-left">{{g.email}}</div></a>
+									<div class="vac_description text-left">{{g.phone_number}}</div>
+								</div>
+								<div class="col-md-4">
+									<div class="vac_tools text-right">
+										<i class="fa fa-commenting-o"></i>
+									</div>
+								</div>
+							</div>
+							<hr />
+						</div>
+					{% endfor %}
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
